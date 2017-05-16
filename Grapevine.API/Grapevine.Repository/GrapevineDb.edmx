@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GrapevineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Categories">
+          <Key>
+            <PropertyRef Name="iCategoryId" />
+          </Key>
+          <Property Name="iCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vCatName" Type="nvarchar" MaxLength="150" />
+          <Property Name="vImgUrl" Type="nvarchar" MaxLength="150" />
+          <Property Name="vDescription" Type="nvarchar" MaxLength="350" />
+          <Property Name="bStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Cities">
+          <Key>
+            <PropertyRef Name="iCityId" />
+          </Key>
+          <Property Name="iCityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vCity" Type="nvarchar" MaxLength="255" />
+          <Property Name="vCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="iCountryId" Type="int" />
+          <Property Name="iStateId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Contacts">
+          <Key>
+            <PropertyRef Name="iContactId" />
+          </Key>
+          <Property Name="iContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vName" Type="nvarchar" MaxLength="500" />
+          <Property Name="vMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="vUserIds" Type="varchar" MaxLength="1500" />
+          <Property Name="vSource" Type="nvarchar" MaxLength="50" />
+          <Property Name="bActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Countries">
+          <Key>
+            <PropertyRef Name="iCountryId" />
+          </Key>
+          <Property Name="iCountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vCountryName" Type="nvarchar" MaxLength="150" />
+          <Property Name="vCountryCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_States">
+          <Key>
+            <PropertyRef Name="iStateId" />
+          </Key>
+          <Property Name="iStateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vState" Type="nvarchar" MaxLength="150" />
+          <Property Name="vCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="iCountryId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_UserConnections">
+          <Key>
+            <PropertyRef Name="iUserConnectionId" />
+          </Key>
+          <Property Name="iUserConnectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iUserId" Type="int" />
+          <Property Name="iMainUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_UserImages">
+          <Key>
+            <PropertyRef Name="iUserImageId" />
+          </Key>
+          <Property Name="iUserImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iUserId" Type="int" />
+          <Property Name="vImgUrl" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="tbl_UserNotifications">
+          <Key>
+            <PropertyRef Name="iNotificationId" />
+          </Key>
+          <Property Name="iNotificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iUserId" Type="int" />
+          <Property Name="vDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="iByUserId" Type="int" />
+          <Property Name="vType" Type="nvarchar" MaxLength="50" />
+          <Property Name="dNotifyDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_UserReviews">
+          <Key>
+            <PropertyRef Name="iUserReviewId" />
+          </Key>
+          <Property Name="iUserReviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iUserId" Type="int" />
+          <Property Name="iReviewById" Type="int" />
+          <Property Name="vDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="dReviewDate" Type="date" />
+          <Property Name="vOverRate" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="iUserId" />
+          </Key>
+          <Property Name="iUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vName" Type="nvarchar" MaxLength="250" />
+          <Property Name="vEmail" Type="nvarchar" MaxLength="250" />
+          <Property Name="vPassword" Type="nvarchar" MaxLength="250" />
+          <Property Name="vCountryCodeMobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="vMobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="vAddress1" Type="nvarchar" MaxLength="500" />
+          <Property Name="vAddress2" Type="nvarchar" MaxLength="500" />
+          <Property Name="vCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="vState" Type="nvarchar" MaxLength="50" />
+          <Property Name="vCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="iCityId" Type="int" />
+          <Property Name="iStateId" Type="int" />
+          <Property Name="iCountryId" Type="int" />
+          <Property Name="vCompName" Type="nvarchar" MaxLength="250" />
+          <Property Name="iCategoryId" Type="int" />
+          <Property Name="vWebsite" Type="nvarchar" MaxLength="250" />
+          <Property Name="vAboutMe" Type="nvarchar" MaxLength="500" />
+          <Property Name="vVerifyCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="vImgUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="bStatus" Type="bit" />
+          <Property Name="dCreateDate" Type="date" />
+          <Property Name="dUpdateDate" Type="date" />
+          <Property Name="vLatitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="vLongitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="vDeviceId" Type="nvarchar" MaxLength="500" />
+          <Property Name="facebookId" Type="nvarchar" MaxLength="350" />
+          <Property Name="twitterId" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityContainer Name="GrapevineModelStoreContainer">
+          <EntitySet Name="tbl_Categories" EntityType="Self.tbl_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Cities" EntityType="Self.tbl_Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Contacts" EntityType="Self.tbl_Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Countries" EntityType="Self.tbl_Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_States" EntityType="Self.tbl_States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserConnections" EntityType="Self.tbl_UserConnections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserImages" EntityType="Self.tbl_UserImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserNotifications" EntityType="Self.tbl_UserNotifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserReviews" EntityType="Self.tbl_UserReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GrapevineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Categories">
+          <Key>
+            <PropertyRef Name="iCategoryId" />
+          </Key>
+          <Property Name="iCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vCatName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="vImgUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="vDescription" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="bStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_Cities">
+          <Key>
+            <PropertyRef Name="iCityId" />
+          </Key>
+          <Property Name="iCityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vCity" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iCountryId" Type="Int32" />
+          <Property Name="iStateId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Contacts">
+          <Key>
+            <PropertyRef Name="iContactId" />
+          </Key>
+          <Property Name="iContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="vMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vUserIds" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="vSource" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_Countries">
+          <Key>
+            <PropertyRef Name="iCountryId" />
+          </Key>
+          <Property Name="iCountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vCountryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="vCountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_States">
+          <Key>
+            <PropertyRef Name="iStateId" />
+          </Key>
+          <Property Name="iStateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vState" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="vCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iCountryId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_UserConnections">
+          <Key>
+            <PropertyRef Name="iUserConnectionId" />
+          </Key>
+          <Property Name="iUserConnectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iUserId" Type="Int32" />
+          <Property Name="iMainUserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_UserImages">
+          <Key>
+            <PropertyRef Name="iUserImageId" />
+          </Key>
+          <Property Name="iUserImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iUserId" Type="Int32" />
+          <Property Name="vImgUrl" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_UserNotifications">
+          <Key>
+            <PropertyRef Name="iNotificationId" />
+          </Key>
+          <Property Name="iNotificationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iUserId" Type="Int32" />
+          <Property Name="vDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="iByUserId" Type="Int32" />
+          <Property Name="vType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dNotifyDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_UserReviews">
+          <Key>
+            <PropertyRef Name="iUserReviewId" />
+          </Key>
+          <Property Name="iUserReviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iUserId" Type="Int32" />
+          <Property Name="iReviewById" Type="Int32" />
+          <Property Name="vDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="dReviewDate" Type="DateTime" Precision="0" />
+          <Property Name="vOverRate" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="iUserId" />
+          </Key>
+          <Property Name="iUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="vEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="vPassword" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="vCountryCodeMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="vMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="vAddress1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="vAddress2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="vCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iCityId" Type="Int32" />
+          <Property Name="iStateId" Type="Int32" />
+          <Property Name="iCountryId" Type="Int32" />
+          <Property Name="vCompName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="iCategoryId" Type="Int32" />
+          <Property Name="vWebsite" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="vAboutMe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="vVerifyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vImgUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="bStatus" Type="Boolean" />
+          <Property Name="dCreateDate" Type="DateTime" Precision="0" />
+          <Property Name="dUpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="vLatitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vLongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vDeviceId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="facebookId" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="twitterId" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="GrapevineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Categories" EntityType="Self.tbl_Categories" />
+          <EntitySet Name="tbl_Cities" EntityType="Self.tbl_Cities" />
+          <EntitySet Name="tbl_Contacts" EntityType="Self.tbl_Contacts" />
+          <EntitySet Name="tbl_Countries" EntityType="Self.tbl_Countries" />
+          <EntitySet Name="tbl_States" EntityType="Self.tbl_States" />
+          <EntitySet Name="tbl_UserConnections" EntityType="Self.tbl_UserConnections" />
+          <EntitySet Name="tbl_UserImages" EntityType="Self.tbl_UserImages" />
+          <EntitySet Name="tbl_UserNotifications" EntityType="Self.tbl_UserNotifications" />
+          <EntitySet Name="tbl_UserReviews" EntityType="Self.tbl_UserReviews" />
+          <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GrapevineModelStoreContainer" CdmEntityContainer="GrapevineEntities">
+          <EntitySetMapping Name="tbl_Categories">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_Categories">
+              <MappingFragment StoreEntitySet="tbl_Categories">
+                <ScalarProperty Name="iCategoryId" ColumnName="iCategoryId" />
+                <ScalarProperty Name="vCatName" ColumnName="vCatName" />
+                <ScalarProperty Name="vImgUrl" ColumnName="vImgUrl" />
+                <ScalarProperty Name="vDescription" ColumnName="vDescription" />
+                <ScalarProperty Name="bStatus" ColumnName="bStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Cities">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_Cities">
+              <MappingFragment StoreEntitySet="tbl_Cities">
+                <ScalarProperty Name="iCityId" ColumnName="iCityId" />
+                <ScalarProperty Name="vCity" ColumnName="vCity" />
+                <ScalarProperty Name="vCode" ColumnName="vCode" />
+                <ScalarProperty Name="iCountryId" ColumnName="iCountryId" />
+                <ScalarProperty Name="iStateId" ColumnName="iStateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Contacts">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_Contacts">
+              <MappingFragment StoreEntitySet="tbl_Contacts">
+                <ScalarProperty Name="iContactId" ColumnName="iContactId" />
+                <ScalarProperty Name="vName" ColumnName="vName" />
+                <ScalarProperty Name="vMobile" ColumnName="vMobile" />
+                <ScalarProperty Name="vUserIds" ColumnName="vUserIds" />
+                <ScalarProperty Name="vSource" ColumnName="vSource" />
+                <ScalarProperty Name="bActive" ColumnName="bActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Countries">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_Countries">
+              <MappingFragment StoreEntitySet="tbl_Countries">
+                <ScalarProperty Name="iCountryId" ColumnName="iCountryId" />
+                <ScalarProperty Name="vCountryName" ColumnName="vCountryName" />
+                <ScalarProperty Name="vCountryCode" ColumnName="vCountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_States">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_States">
+              <MappingFragment StoreEntitySet="tbl_States">
+                <ScalarProperty Name="iStateId" ColumnName="iStateId" />
+                <ScalarProperty Name="vState" ColumnName="vState" />
+                <ScalarProperty Name="vCode" ColumnName="vCode" />
+                <ScalarProperty Name="iCountryId" ColumnName="iCountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserConnections">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_UserConnections">
+              <MappingFragment StoreEntitySet="tbl_UserConnections">
+                <ScalarProperty Name="iUserConnectionId" ColumnName="iUserConnectionId" />
+                <ScalarProperty Name="iUserId" ColumnName="iUserId" />
+                <ScalarProperty Name="iMainUserId" ColumnName="iMainUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserImages">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_UserImages">
+              <MappingFragment StoreEntitySet="tbl_UserImages">
+                <ScalarProperty Name="iUserImageId" ColumnName="iUserImageId" />
+                <ScalarProperty Name="iUserId" ColumnName="iUserId" />
+                <ScalarProperty Name="vImgUrl" ColumnName="vImgUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserNotifications">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_UserNotifications">
+              <MappingFragment StoreEntitySet="tbl_UserNotifications">
+                <ScalarProperty Name="iNotificationId" ColumnName="iNotificationId" />
+                <ScalarProperty Name="iUserId" ColumnName="iUserId" />
+                <ScalarProperty Name="vDescription" ColumnName="vDescription" />
+                <ScalarProperty Name="iByUserId" ColumnName="iByUserId" />
+                <ScalarProperty Name="vType" ColumnName="vType" />
+                <ScalarProperty Name="dNotifyDate" ColumnName="dNotifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserReviews">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_UserReviews">
+              <MappingFragment StoreEntitySet="tbl_UserReviews">
+                <ScalarProperty Name="iUserReviewId" ColumnName="iUserReviewId" />
+                <ScalarProperty Name="iUserId" ColumnName="iUserId" />
+                <ScalarProperty Name="iReviewById" ColumnName="iReviewById" />
+                <ScalarProperty Name="vDesc" ColumnName="vDesc" />
+                <ScalarProperty Name="dReviewDate" ColumnName="dReviewDate" />
+                <ScalarProperty Name="vOverRate" ColumnName="vOverRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Users">
+            <EntityTypeMapping TypeName="GrapevineModel.tbl_Users">
+              <MappingFragment StoreEntitySet="tbl_Users">
+                <ScalarProperty Name="iUserId" ColumnName="iUserId" />
+                <ScalarProperty Name="vName" ColumnName="vName" />
+                <ScalarProperty Name="vEmail" ColumnName="vEmail" />
+                <ScalarProperty Name="vPassword" ColumnName="vPassword" />
+                <ScalarProperty Name="vCountryCodeMobile" ColumnName="vCountryCodeMobile" />
+                <ScalarProperty Name="vMobile" ColumnName="vMobile" />
+                <ScalarProperty Name="vAddress1" ColumnName="vAddress1" />
+                <ScalarProperty Name="vAddress2" ColumnName="vAddress2" />
+                <ScalarProperty Name="vCity" ColumnName="vCity" />
+                <ScalarProperty Name="vState" ColumnName="vState" />
+                <ScalarProperty Name="vCountry" ColumnName="vCountry" />
+                <ScalarProperty Name="iCityId" ColumnName="iCityId" />
+                <ScalarProperty Name="iStateId" ColumnName="iStateId" />
+                <ScalarProperty Name="iCountryId" ColumnName="iCountryId" />
+                <ScalarProperty Name="vCompName" ColumnName="vCompName" />
+                <ScalarProperty Name="iCategoryId" ColumnName="iCategoryId" />
+                <ScalarProperty Name="vWebsite" ColumnName="vWebsite" />
+                <ScalarProperty Name="vAboutMe" ColumnName="vAboutMe" />
+                <ScalarProperty Name="vVerifyCode" ColumnName="vVerifyCode" />
+                <ScalarProperty Name="vImgUrl" ColumnName="vImgUrl" />
+                <ScalarProperty Name="bStatus" ColumnName="bStatus" />
+                <ScalarProperty Name="dCreateDate" ColumnName="dCreateDate" />
+                <ScalarProperty Name="dUpdateDate" ColumnName="dUpdateDate" />
+                <ScalarProperty Name="vLatitude" ColumnName="vLatitude" />
+                <ScalarProperty Name="vLongitude" ColumnName="vLongitude" />
+                <ScalarProperty Name="vDeviceId" ColumnName="vDeviceId" />
+                <ScalarProperty Name="facebookId" ColumnName="facebookId" />
+                <ScalarProperty Name="twitterId" ColumnName="twitterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grapevine.API", "Grapevine.API\Grapevine.API.csproj", "{0907D484-8AF6-4C73-B4CE-EAB33B83003D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grapevine.Repository", "Grapevine.Repository\Grapevine.Repository.csproj", "{1A0AA8DD-E844-43E7-A909-F1071E711B37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grapevine.Service", "Grapevine.Service\Grapevine.Service.csproj", "{851BAD68-504F-45F6-9C56-6CF5B5D46CAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grapevine.Model", "Grapevine.Model\Grapevine.Model.csproj", "{0B4A820F-A76E-4319-AC7D-83DACCD16782}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0907D484-8AF6-4C73-B4CE-EAB33B83003D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0907D484-8AF6-4C73-B4CE-EAB33B83003D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0907D484-8AF6-4C73-B4CE-EAB33B83003D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0907D484-8AF6-4C73-B4CE-EAB33B83003D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0AA8DD-E844-43E7-A909-F1071E711B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0AA8DD-E844-43E7-A909-F1071E711B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0AA8DD-E844-43E7-A909-F1071E711B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0AA8DD-E844-43E7-A909-F1071E711B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851BAD68-504F-45F6-9C56-6CF5B5D46CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851BAD68-504F-45F6-9C56-6CF5B5D46CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851BAD68-504F-45F6-9C56-6CF5B5D46CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851BAD68-504F-45F6-9C56-6CF5B5D46CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B4A820F-A76E-4319-AC7D-83DACCD16782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4A820F-A76E-4319-AC7D-83DACCD16782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4A820F-A76E-4319-AC7D-83DACCD16782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4A820F-A76E-4319-AC7D-83DACCD16782}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
